@@ -45,17 +45,6 @@ class Utils {
     return YMKRequestPoint(point: point, type: pointType, pointContext: nil)
   }
 
-  static func drivingOptionsFromJson(_ json: [String: Any]) -> YMKDrivingDrivingOptions {
-    return YMKDrivingDrivingOptions(
-      initialAzimuth: json["initialAzimuth"] as? NSNumber,
-      routesCount: json["routesCount"] as? NSNumber,
-      avoidTolls: json["avoidTolls"] as? NSNumber,
-      avoidUnpaved: json["avoidUnpaved"] as? NSNumber,
-      avoidPoorConditions: json["avoidPoorConditions"] as? NSNumber,
-      departureTime: nil,
-      annotationLanguage: nil
-    )
-  }
 
   static func searchOptionsFromJson(_ json: [String: Any]) -> YMKSearchOptions {
     let userPosition = json["userPosition"] as? [String: Any] != nil ?
