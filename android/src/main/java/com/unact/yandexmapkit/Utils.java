@@ -33,7 +33,6 @@ public class Utils {
   @SuppressWarnings({"ConstantConditions"})
   public static ScreenPoint screenPointFromJson(Map<String, Object> json) {
     return new ScreenPoint(((Double) json.get("x")).floatValue(), ((Double) json.get("y")).floatValue());
-    return new ScreenPoint(((Double) json.get("x")).floatValue(), ((Double) json.get("y")).floatValue());
   }
 
   @SuppressWarnings({"ConstantConditions", "unchecked"})
