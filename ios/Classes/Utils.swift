@@ -46,34 +46,6 @@ class Utils {
   }
 
 
-  static func searchOptionsFromJson(_ json: [String: Any]) -> YMKSearchOptions {
-    let userPosition = json["userPosition"] as? [String: Any] != nil ?
-      pointFromJson(json["userPosition"] as! [String: NSNumber]) :
-      nil
-
-    return YMKSearchOptions(
-      searchTypes: YMKSearchType(rawValue: (json["searchType"] as! NSNumber).uintValue),
-      resultPageSize: json["resultPageSize"] as? NSNumber,
-      userPosition: userPosition,
-      origin: json["origin"] as? String,
-      geometry: (json["geometry"] as! NSNumber).boolValue,
-      disableSpellingCorrection: (json["disableSpellingCorrection"] as! NSNumber).boolValue,
-      filters: nil
-    )
-  }
-
-  static func suggestOptionsFromJson(_ json: [String: Any]) -> YMKSuggestOptions {
-    let userPosition = json["userPosition"] as? [String: Any] != nil ?
-      pointFromJson(json["userPosition"] as! [String: NSNumber]) :
-      nil
-
-    return YMKSuggestOptions(
-      suggestTypes: YMKSuggestType.init(rawValue: (json["suggestType"] as! NSNumber).uintValue),
-      userPosition: userPosition,
-      suggestWords: (json["suggestWords"] as! NSNumber).boolValue
-    )
-  }
-
   static func geometryFromJson(_ json: [String: Any]) -> YMKGeometry {
     if let geometryPoint = json["point"] as? [String: NSNumber] {
       return YMKGeometry(point: pointFromJson(geometryPoint))
